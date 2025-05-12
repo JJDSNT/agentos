@@ -1,0 +1,50 @@
+# Ambiente virtual Python
+venv/
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.log
+*.tmp
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Arquivos de sistema
+.DS_Store
+
+# Build do Python
+build/
+dist/
+*.egg-info/
+
+# Arquivos de banco/local
+*.db
+*.sqlite3
+*.test.db
+output/
+
+# Ollama (caso use localmente e prefira ignorar cache)
+~/.ollama/
+
+# Frontend (React/Angular/Vue/etc.)
+app/ui/node_modules/
+app/ui/.angular/
+app/ui/.next/
+app/ui/.nuxt/
+app/ui/.vite/
+app/ui/dist/
+app/ui/build/
+app/ui/.env
+app/ui/.env.*
+
+# Histórico e backups
+*.bak
+*.old
+*.orig
+
+# Checkpoints Jupyter
+.ipynb_checkpoints/
