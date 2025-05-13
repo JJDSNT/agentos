@@ -41,21 +41,28 @@ Este projeto se apoia na convergência de quatro tecnologias fundamentais:
 
 ```bash
 agentos/
-├── agents/ # Definição de agentes LangChain
-│ ├── planner_agent.py
-│ ├── executor_agent.py
-├── langgraph/ # Fluxos de controle e decisão
-│ └── digital_plan_graph.py
-├── context/ # Schemas e exemplos de MCP
-│ └── mcp_schema.json
-├── a2a/ # Integração com protocolos externos
-│ └── communicator.py
+├── agents/                         # Agentes LangChain
+│   ├── planner_agent.py
+│   ├── executor_agent.py
+├── langgraph/                      # Fluxos de controle e decisão
+│   └── digital_plan_graph.py
+├── context/                        # Schemas e exemplos de MCP
+│   └── mcp_schema.json
+├── a2a/                            # Integração com protocolos externos
+│   └── communicator.py
 ├── app/
-│ ├── api.py # Backend para expor fluxos
-│ └── ui/ # Interface web para usuários
-│ └── dashboard.tsx
+│   ├── api.py                      # FastAPI principal
+│   ├── agui/                       # Integração com AG-UI Protocol
+│   │   ├── handler.py              # Eventos e lógica AG-UI
+│   │   └── schema.py               # (Opcional) Schemas e tipos customizados AG-UI
+│   └── ui/                         # Interface frontend (React, Angular etc.)
+│       └── dashboard.tsx
+├── main.py                         # Execução sequencial manual
+├── check_ollama.py                 # Verificação do servidor LLM
+├── .env                            # Variáveis de ambiente
 ├── README.md
 └── requirements.txt
+
 ```
 
 ---
@@ -96,6 +103,7 @@ O **AgentOS** visa evoluir como uma *infraestrutura modular de agentes*, onde:
 - [LangGraph](https://docs.langchain.com/langgraph/)
 - [MCP – Model Context Protocol (Google)](https://github.com/google/model-context-protocol)
 - [A2A – Agent-to-Agent Protocol](https://github.com/google/agent-protocol)
+- [AG-UI](https://github.com/ag-ui-protocol/ag-ui)
 
 ---
 
