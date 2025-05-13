@@ -1,6 +1,7 @@
 from check_ollama import check_server
-from planner_agent import chain as planner_chain
-from executor_agent import chain as executor_chain
+from agents.planner_agent import chain as planner_chain
+from agents.executor_agent import chain as executor_chain
+
 
 def extrair_primeira_acao(texto: str) -> str:
     """Extrai a primeira ação do plano gerado. Método simples baseado em quebra de linha."""
@@ -9,6 +10,7 @@ def extrair_primeira_acao(texto: str) -> str:
         if linha.strip().startswith("1.") or linha.strip().startswith("-"):
             return linha.strip()
     return texto.strip()  # fallback se não houver estrutura numerada
+
 
 if __name__ == "__main__":
     print("🔍 Verificando servidor Ollama...")

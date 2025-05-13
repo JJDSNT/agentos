@@ -1,5 +1,4 @@
 from langgraph.graph import StateGraph, END
-from langgraph.pregel import Pregel
 from typing import TypedDict, Optional
 
 from agents.planner_agent import chain as planner_chain
@@ -53,6 +52,8 @@ def build_graph():
 # 6. Exemplo de execução manual
 if __name__ == "__main__":
     graph = build_graph()
-    resultado_final = graph.invoke({"objetivo": "melhorar o atendimento ao cliente"})
+    resultado_final = graph.invoke({
+        "objetivo": "melhorar o atendimento ao cliente"
+    })
     print("\n✅ Resultado Final do Grafo:\n")
     print(resultado_final)
