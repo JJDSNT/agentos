@@ -41,6 +41,11 @@ Este projeto se apoia na convergência de quatro tecnologias fundamentais:
 
 ```bash
 agentos/
+├── digitalops/                    # Camada de operações digitais (mock ou real)
+│   ├── mock.py                    # Mock de chamadas operacionais (ativar serviço, monitorar evento, etc.)
+│   ├── state.py                   # Armazena/atualiza estado operacional dos serviços
+│   ├── gateway.py                 # Interface (façade) para o resto do sistema
+│   └── log.py                     # Logging de eventos operacionais simulados
 ├── agents/                         # Agentes LangChain
 │   ├── planner_agent.py
 │   ├── executor_agent.py
@@ -50,6 +55,26 @@ agentos/
 │   └── mcp_schema.json
 ├── a2a/                            # Integração com protocolos externos
 │   └── communicator.py
+├── twins/                          # Digital Twins / Digital Shadows
+│   ├── blueprints/                 # Definições estáticas (ex: DTDL, YAML, JSON)
+│   │   ├── chatbot_service.json
+│   ├── shadows/                    # Estados dinâmicos em tempo real (espelhos)
+│   │   ├── loja_conforto.shadow.json
+│   └── schema.py                   # DTOs e validadores em Python (opcional)
+├── simulation/                     # Simulações e análise de impacto
+│   ├── scenarios/                  # Casos simulados (entradas)
+│   │   ├── default.json
+│   ├── models/                     # Modelos exportados (ex: AnyLogic, mesa)
+│   │   ├── AgentOSSim.xlpx         # Ex: projeto AnyLogic
+│   ├── bridge.py                   # Código para integração (Python ↔ AnyLogic/mesa)
+│   ├── runner.py                   # Executor de simulações (por CLI, API ou teste)
+│   └── metrics.py                  # Coleta e análise de KPIs simulados
+├── models/                         # DTOs reutilizáveis em LangGraph, AGUI, Twins, API
+│   ├── base.py                     # BaseDTO (Pydantic root)
+│   ├── plano.py                    # PlanoDTO, EtapaDTO
+│   ├── acao.py                     # AcaoDTO, ResultadoExecucaoDTO
+│   ├── twin.py                     # TwinStateDTO, BlueprintDTO
+│   └── agui.py                     # Estruturas de entrada/saída do AG-UI
 ├── app/
 │   ├── api.py                      # FastAPI principal
 │   ├── agui/                       # Integração com AG-UI Protocol
